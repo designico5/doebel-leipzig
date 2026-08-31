@@ -9,6 +9,8 @@ SCHRITT 1 — Lies in dieser Reihenfolge:
 
 SCHRITT 2 — Verifiziere den Zustand: python3 qa/qw_audit.py website  → muss ALLES-GRÜN melden.
 
+LIVE-BEREITS: die Seite laeuft bereits auf https://hxad9lg6.qwenwork.page/ (V1) — Neue Fassung = V2-Update dorthin, NICHT neue Page anlegen (page_id app-25f59af3-4ed153f9 bleibt).
+
 SCHRITT 3 — Nächste Aufgabe (in dieser Priorität, wenn nicht anders befohlen):
 A) FLAGSHIP-SCENE-ART-PASS: Fluid-Shader-Kinematik nach Inhalts-Temperatur (Wärmezonen röter,
    Kältezonen blauer), Grain/Farbtemperatur/Vignette der 6 Renderings vereinheitlichen,

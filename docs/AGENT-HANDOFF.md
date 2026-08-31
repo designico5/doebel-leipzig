@@ -1,4 +1,4 @@
-# AGENT-HANDOFF · Stand 2026-09-01 (Session „Icon Dream“ QwenWork)
+# AGENT-HANDOFF · Stand 2026-09-01 (Session „Icon Dream“ QwenWork) · v2026.09h LIVE
 Ein-Dokument-Gedächtnis. Neue Umgebung = hier lesen, `python3 qa/qw_audit.py website` ausführen, dann STARTPROMPT-Aufgabe A.
 
 ## 1. Gebaut ist (Fertig-Status: QA-grün, preview- und deploy-reif)
@@ -40,3 +40,12 @@ QA: `python3 qa/qw_audit.py website` (Tags/JSON-LD/Anker/Claims/Klammern/Version
 
 ## 7. Historie in Kurzform (Entscheidungen → warum)
 v1 statischer Kern (Briefing: SSG-Konservatismus, CF-Pages) → v2 Fable-Ton+12-Rollen (Motion/Story: Wärmestrom-Signatur, Tour) → v3 Rot×Blau-SOTA-Kommando (Kundenpivot) → v4 Ant-Man-Tour 7 Stationen + Armaturen („mehr Grafik, blubbern/dampfen") → v5 Dark-Immersion+Bento+Header-Inversion („design scheisse"-Round) → v6 WebGL-Fluid + 6 AI-Kino-Renderings, Ken-Burns, Zündsprings, heat-Uniforms („neueste Technik, planet best") → 5-fach-Dokus-Audit + Bereinigung aller Claims → Deploy-Kit + Strategie-Report. Multi-Agent/Flagship war in Quel-chat deaktiviert; Fallback-Arbeiten wurden in eigener Session erledigt.
+
+
+## 8. LIVE-Status (Endstand dieses Chats)
+- **Öffentliche QW Page V1: https://hxad9lg6.qwenwork.page/** (static, page_id app-25f59af3-4ed153f9, Deployment deployed 238f14ca). Verifiziert: root/css/js/flow/subpages/img 200, 404 korrekt.
+- **Managed Source-Repo (QW Pages):** /mnt/pages/page-repo-ea9a26a7-b270-4633-ba8a-1b718a7146f0 · HEAD 63c9dfc · Vite-Scaffold mit base:"./", Root-index + public/*. Neue Umgebung in SELBERM Infra: checkpoint → build → `publish.py dist --page-id app-25f59af3-4ed153f9 --page-action update --repo-root <pfad>` → V2.
+- **GitHub-Klon (privat):** github.com/designico5/doebel-leipzig (website/ + docs/ + qa/; CI-Template in docs/ci/deploy.yml.example wg. workflow-Scope). Pull/push via gh auth (designico5).
+- Cloudflare/Umwandlung doebel-leipzig.de = optionaler Endausbau, Anleitung in website/ANLEITUNG-DEPLOY.md
+- Flagship-Modell:accountseitig nicht freigeschaltet (Multi-Agent-Schalter fehlt) — alle Pässe auf verfügbarem Modell erledigt, Fallback-Doku s. §6-Historie v2026.09h
+- QA-Baseline: python3 qa/qw_audit.py website → PASS 152 / FAIL 0 (behalte Sollwert bei)
