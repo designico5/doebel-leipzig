@@ -319,7 +319,7 @@ section{padding-block:var(--sec-pad)}
 .stop b{font-family:var(--font-display);display:block}
 .stop span{font-size:var(--fs-2);color:var(--ink-soft)}
 .st circle{fill:var(--white);stroke:var(--ink);stroke-width:2.5;transition:fill .22s cubic-bezier(.3,1.8,.5,1),stroke .22s}
-.st.on circle{transform-box:fill-box;transform-origin:center;animation:ignition .5s cubic-bezier(.2,1.6,.4,1)}
+.st.on circle{transform-box:fill-box;transform-origin:center;animation:ignition calc(.5s / var(--ign,1)) cubic-bezier(.2,1.6,.4,1)}
 @keyframes ignition{0%{transform:scale(1)}40%{transform:scale(1.55)}100%{transform:scale(1)}}
 .st text{font-family:var(--font-mono);font-size:13px;fill:var(--ink);text-anchor:middle}
 .st.on circle{fill:var(--flame);stroke:var(--flame);filter:drop-shadow(0 0 6px rgba(214,40,40,.5))}
@@ -476,3 +476,10 @@ canvas.fluid{position:absolute;inset:0;width:100%;height:100%;z-index:0;pointer-
   .zone-bg img,.cine img{animation:filmdrift 28s ease-in-out infinite alternate}
   @keyframes filmdrift{from{transform:scale(1.02) translate3d(0,0,0)}to{transform:scale(1.12) translate3d(-1.4%,-2.2%,0)}}
 }
+
+/* Finale Kino-Klammer: единая Vignette über alle Rendering-Zonen */
+.zone-bg::before,.cine::before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;
+  box-shadow:inset 0 0 clamp(80px,12vw,180px) rgba(6,18,28,.55)}
+.cine img{filter:saturate(1.05) contrast(1.04) brightness(.96)}
+.emergency::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(60% 90% at 85% 10%, rgba(214,40,40,.10), transparent 60%)}

@@ -137,7 +137,11 @@
     var lightAll = function () { stops.forEach(function (s) { s.el.classList.add("on"); s.li.classList.add("lit"); }); };
     if (reduce) { scene.style.setProperty("--t", "0.99"); lightAll(); }
     else {
+      var lastY = window.scrollY, vel = 1;
       var tourP = function () {
+        var dy = Math.abs(window.scrollY - lastY); lastY = window.scrollY;
+        vel = vel * 0.82 + Math.min(2.6, 1 + dy / 28) * 0.18;
+        scene.style.setProperty("--ign", vel.toFixed(2));
         var r = tour.getBoundingClientRect(), vh = window.innerHeight;
         var p = Math.max(0, Math.min(1, (vh * 0.82 - r.top) / (r.height * 0.72)));
         scene.style.setProperty("--t", p.toFixed(3));

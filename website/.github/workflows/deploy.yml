@@ -1,0 +1,19 @@
+name: Deploy → Cloudflare Pages
+on:
+  push: { branches: [main] }
+  pull_request: { branches: [main] }
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: QA-Gates
+        run: |
+          npx --yes html-validate "index.html" "impressum.html" "datenschutz.html" "404.html"
+          node -e "const m=require('fs').readFileSync('index.html','utf8');const j=m.match(/ld\+json>([\s\S]*?)<\/script>/);JSON.parse(j[1]);console.log('JSON-LD valide')"
+      - name: Deploy (Prod bei push auf main, sonst Preview)
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy . --project-name=doebel-leipzig ${{ github.event_name == 'pull_request' && format('--branch=pr-{0}', github.event.number) || '' }}
