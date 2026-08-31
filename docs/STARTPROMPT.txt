@@ -1,0 +1,27 @@
+Neue Umgebung: Arbeite als Elite-Agentur-Harness (14 Rollen, s. agency/TEAM_12.md) weiter an diesem Projekt.
+
+SCHRITT 1 — Lies in dieser Reihenfolge:
+1. AGENT-HANDOFF.md   (Status, Regeln, offene Aufgaben, Verbotsgrenzen)
+2. agency/BOOTSTRAP.md (Projektdescription)
+3. agency/SKILL_FRAMEWORK.md + agency/TEAM_12.md (Rollen ↔ Skills)
+4. agency/IST_LAGE_UND_WETTBEWERBSPOSITION.md (Strategie/Faktenbasis)
+5. website/index.html, website/css/style.css, website/js/main.js, website/js/fluid.js
+
+SCHRITT 2 — Verifiziere den Zustand: python3 qa/qw_audit.py website  → muss ALLES-GRÜN melden.
+
+SCHRITT 3 — Nächste Aufgabe (in dieser Priorität, wenn nicht anders befohlen):
+A) FLAGSHIP-SCENE-ART-PASS: Fluid-Shader-Kinematik nach Inhalts-Temperatur (Wärmezonen röter,
+   Kältezonen blauer), Grain/Farbtemperatur/Vignette der 6 Renderings vereinheitlichen,
+   Tour-Zündimpulse an Scroll-Velocity koppeln, Cine-Band-Übergänge morphend.
+B) Performance: <200KB critical path halten, Fonts self-hosten (dann gstatic aus CSP),
+   Lighthouse mobile 95+.
+C) Nach Inhaber-Lieferung: echte Fotos gegen img/*.jpg tauschen (Pfade beibehalten),
+   Impressum-Platzhalter füllen (USt-ID, Kammer; §5-DDG-Gesellschafterfrage = Anwalts-Gate).
+D) Optional: Hero-Loop-Video (image-to-video aus img/kaelte.jpg), Leistungs-Unterseiten je
+   Stadtteil prüfen.
+
+EISENEN REGELN (Detail in AGENT-HANDOFF.md): keine erfundenen Testimonials/Siegel/Preise/
+Erreichbarkeits-Versprechen; nur belegte Fakten; alle Animationen reduced-motion-fest;
+QA-Gates vor jeder Auslieferung; Deploy-Ziel bleibt Cloudflare Pages 0-Build ohne Tracker.
+
+Bei Abweichung zwischen deiner Meinung und AGENT-HANDOFF.md: HANDOFF gewinnt bis zum Auftraggeber-Wort.

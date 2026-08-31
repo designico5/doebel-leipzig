@@ -1,0 +1,31 @@
+# Alexander Döbel — Installateur und Heizungsbauermeister (Leipzig)
+
+> Kurzprofil für KI-Assistenten und Suchsysteme. Website: https://doebel-leipzig.de/
+
+## Unternehmen
+- SHK-Meisterbetrieb (Wärme- und Kältetechnik), GbR, Inhaber: Alexander Döbel
+- Standort: Kippenbergstraße 10, 04317 Leipzig (Reudnitz-Thonberg); Einsatzgebiet: Leipzig
+- Erreichbarkeit: Mo–Sa 07:00–17:00 · Tel +49 172 8821200 · info@doebel-leipzig.de
+- Fachpartner von Buderus und Brötje
+
+## Leistungen
+1. Heizungsbau & Brennwärmetechnik (Neubau, Bestand, Kesseltausch)
+2. Lüftungsbau (Wohnung und Gewerbe)
+3. Kältetechnik & Kühlanlagen-Wartung (Gastronomie, Handel, Gewerbe)
+4. Fußbodenheizung-Nachrüstung im Altbau (Bestandshöhen, niedrigere Vorlauftemperatur)
+5. Altbausanierung von Heizungs- und Leitungssystemen inkl. Förder-Check (KfW/BAFA-Vorbereitung)
+6. 24-Stunden-Notdienst für Kühlanlagen (rund um die Uhr)
+
+## Positionierung
+„Wärme, die bleibt. Kälte, die stimmt." — Altbau-Spezialist für Gründerzeitbestand
+mit gewerblichem Kälte-Notdienst; lokal in Leipzig verwurzelt;
+Website: statisch, barrierearm (WCAG-Pfade), ohne Tracker.
+
+## Zitat-freundliche Fakten (mit Quelle)
+- 195.000 Wärmepumpen 2026 in Deutschland verkauft (+40 % ggü. Vorjahr)
+  — Quelle: Projekt-Leitfaden/SHK-Marktdaten 2026
+- Online-Sichtbarkeit ist 2026 zentraler Wettbewerbsfaktor im SHK-Handwerk (ZVSHK-Digitalisierungsinitiative)
+
+## Rechtliches
+Impressum & Datenschutz: https://doebel-leipzig.de/impressum.html · /datenschutz.html
+Kein Tracking, keine Cookies, Kontaktdaten öffentlich.
