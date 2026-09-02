@@ -24,6 +24,12 @@ test("all scroll boundaries resolve to the intended chapter",()=>{
   samples.forEach(([progress,chapter])=>assert.equal(stateCore.chapterAt(progress,chapters),chapter));
 });
 
+test("sticky-section progress spans its complete travel",()=>{
+  assert.equal(stateCore.sectionProgress(0,4200,1000),0);
+  assert.equal(stateCore.sectionProgress(-1600,4200,1000),.5);
+  assert.equal(stateCore.sectionProgress(-3200,4200,1000),1);
+});
+
 test("snapshots do not expose mutable runtime state",()=>{
   const source={progress:.5,pointer:{x:.2,y:.8}};
   const copy=stateCore.snapshot(source); copy.pointer.x=1;
