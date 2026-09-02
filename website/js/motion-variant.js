@@ -33,17 +33,18 @@
     if(progress!==target && !reduce) frame=requestAnimationFrame(paint);
   }
   function request(){if(!frame) frame=requestAnimationFrame(paint);}
-  function setVariant(next){
+  function setVariant(next,announce){
     if(!descriptions[next]) return;
     variant=next; scene.setAttribute("data-motion-variant",variant); tour.setAttribute("data-motion-variant",variant);
     tour.querySelectorAll("[data-motion]").forEach(function(button){var active=button.getAttribute("data-motion")===variant;button.classList.toggle("is-active",active);button.setAttribute("aria-pressed",String(active));});
     var copy=tour.querySelector("[data-motion-description]"); if(copy) copy.textContent=descriptions[variant];
-    document.dispatchEvent(new CustomEvent("motionvariantchange",{detail:{variant:variant}}));
+    if(announce!==false) document.dispatchEvent(new CustomEvent("motionvariantchange",{detail:{variant:variant}}));
     paint();
   }
   tour.querySelectorAll("[data-motion]").forEach(function(button){button.addEventListener("click",function(){setVariant(button.getAttribute("data-motion"));});});
+  document.addEventListener("motionvariantchange",function(event){var next=event.detail&&event.detail.variant;if(next&&next!==variant)setVariant(next,false);});
   document.addEventListener("experiencechange",function(event){target=reduce?1:event.detail.ranges.tour;request();});
   window.addEventListener("resize",function(){length=route.getTotalLength();request();});
   target=reduce?1:window.DoebelExperienceState?window.DoebelExperienceState.ranges.tour:0;
-  setVariant("flow");
+  setVariant("flow",false);
 })();
