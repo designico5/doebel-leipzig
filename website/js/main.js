@@ -30,9 +30,9 @@
     for (var i = 0; i < 10; i++) {
       var particle = document.createElement("span");
       particle.className = "ember " + (i % 2 ? "snow" : "flame");
-      particle.style.left = (8 + Math.random() * 70) + "%";
-      particle.style.setProperty("--d", (Math.random() * 6).toFixed(2) + "s");
-      particle.style.setProperty("--x", (Math.random() * 40 - 10).toFixed(0) + "px");
+      particle.style.left = (8 + (i * 37) % 70) + "%";
+      particle.style.setProperty("--d", ((i * 1.73) % 6).toFixed(2) + "s");
+      particle.style.setProperty("--x", ((i * 17) % 40 - 10) + "px");
       hero.appendChild(particle);
     }
   }
@@ -77,43 +77,9 @@
   }
 
   var heat = document.getElementById("heat");
-  function pageProgress() {
-    var page = document.documentElement;
-    return Math.max(0, Math.min(1, page.scrollTop / (page.scrollHeight - page.clientHeight || 1)));
-  }
-  function updateHeat() {
-    if (heat) heat.style.transform = "scaleY(" + (reduce ? 1 : pageProgress().toFixed(3)) + ")";
-  }
-
-  var flow = 1;
-  var flowTarget = 1;
-  var lastY = window.scrollY;
-  var lastMove = performance.now();
-  var lastFlowTime = lastMove;
-  var flowFrame = 0;
-  function flowTick(now) {
-    if (now - lastMove > 110) flowTarget = 1;
-    flow += (flowTarget - flow) * 0.18;
-    if (Math.abs(flow - flowTarget) < 0.01) flow = flowTarget;
-    root.style.setProperty("--flow", flow.toFixed(2));
-    root._thermalFlow = flow;
-    if (flow !== 1 || flowTarget !== 1) flowFrame = requestAnimationFrame(flowTick);
-    else flowFrame = 0;
-  }
-  function measureFlow() {
-    updateHeat();
-    if (reduce) return;
-    var nextY = window.scrollY;
-    var delta = Math.abs(nextY - lastY);
-    var now = performance.now();
-    var elapsed = Math.max(16, Math.min(80, now - lastFlowTime));
-    lastY = nextY;
-    lastMove = lastFlowTime = now;
-    flowTarget = Math.max(1, Math.min(2.4, 1 + delta / elapsed * .75));
-    if (!flowFrame) flowFrame = requestAnimationFrame(flowTick);
-  }
-  document.addEventListener("scroll", measureFlow, { passive: true });
-  updateHeat();
+  function updateHeat(progress) { if (heat) heat.style.transform = "scaleY(" + (reduce ? 1 : progress.toFixed(3)) + ")"; }
+  document.addEventListener("experiencechange", function (event) { updateHeat(event.detail.progress); });
+  updateHeat(window.DoebelExperienceState ? window.DoebelExperienceState.progress : 0);
 
   var header = document.querySelector(".site-header");
   var zones = document.querySelectorAll(".hero,.trust,.statband,.sub-hero,.cine,.emergency,.site-footer");
@@ -132,7 +98,7 @@
   function queueFlip() {
     if (!flipFrame) flipFrame = requestAnimationFrame(flipHeader);
   }
-  document.addEventListener("scroll", queueFlip, { passive: true });
+  document.addEventListener("experiencechange", queueFlip);
   window.addEventListener("resize", queueFlip, { passive: true });
   flipHeader();
 
@@ -179,13 +145,7 @@
       });
       activeStop = now;
     }
-    function tourProgress() {
-      if (reduce) return setTour(1);
-      var rect = tour.getBoundingClientRect();
-      var progress = Math.max(0, Math.min(1, (innerHeight * 0.82 - rect.top) / (rect.height * 0.72)));
-      setTour(progress);
-    }
-    document.addEventListener("scroll", tourProgress, { passive: true });
-    tourProgress();
+    document.addEventListener("experiencechange", function (event) { setTour(reduce ? 1 : event.detail.ranges.tour); });
+    setTour(reduce ? 1 : window.DoebelExperienceState ? window.DoebelExperienceState.ranges.tour : 0);
   }
 })();

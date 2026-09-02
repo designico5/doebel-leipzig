@@ -14,13 +14,8 @@
   }
   var variant="flow", progress=0, target=0, frame=0, length=route.getTotalLength();
   var descriptions={flow:"Partikel folgen dem Kältekreis rückwärts bis zur warmen Kesselzone.",phase:"Der Strom zerfällt an den Stationen, wirbelt und kondensiert als neuer Wärmekern.",cine:"Ein dunkler Energie-Kern zieht den Blick durch die Anlage und zündet am Heizkessel."};
-  function clamp(v){return Math.max(0,Math.min(1,v));}
-  function progressTarget(){
-    if(reduce){target=1;return;}
-    var rect=tour.getBoundingClientRect(); target=clamp((innerHeight*.82-rect.top)/(rect.height*.72));
-  }
   function paint(){
-    frame=0; progressTarget(); progress+= (target-progress)*.16; if(Math.abs(target-progress)<.002) progress=target;
+    frame=0; progress+= (target-progress)*.16; if(Math.abs(target-progress)<.002) progress=target;
     root.style.setProperty("--variant-progress",progress.toFixed(3));
     var center=length*(1-progress), spread=length*(variant==="phase"?.16:.1), centerPoint=route.getPointAtLength(Math.max(0,Math.min(length,center)));
     orb.setAttribute("cx",centerPoint.x.toFixed(1)); orb.setAttribute("cy",centerPoint.y.toFixed(1));
@@ -47,7 +42,8 @@
     paint();
   }
   tour.querySelectorAll("[data-motion]").forEach(function(button){button.addEventListener("click",function(){setVariant(button.getAttribute("data-motion"));});});
-  document.addEventListener("scroll",request,{passive:true}); window.addEventListener("resize",function(){length=route.getTotalLength();request();});
+  document.addEventListener("experiencechange",function(event){target=reduce?1:event.detail.ranges.tour;request();});
+  window.addEventListener("resize",function(){length=route.getTotalLength();request();});
+  target=reduce?1:window.DoebelExperienceState?window.DoebelExperienceState.ranges.tour:0;
   setVariant("flow");
 })();
-

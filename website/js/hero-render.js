@@ -13,13 +13,8 @@
   }
   function clamp(v){return Math.max(0,Math.min(1,v));}
   function smooth(v){return v*v*(3-2*v);}
-  function readTarget(){
-    if(reduce){target=.82;return;}
-    var r=scene.getBoundingClientRect();
-    target=clamp((innerHeight*.88-r.top)/(r.height+innerHeight*.65));
-  }
   function paint(){
-    frame=0; readTarget(); progress+=(target-progress)*.12; if(Math.abs(target-progress)<.0015) progress=target;
+    frame=0; progress+=(target-progress)*.12; if(Math.abs(target-progress)<.0015) progress=target;
     var p=progress, zoom=1, lensScale=1, lensOpacity=.92;
     if(p<.26){var a=smooth(p/.26);zoom=1+a*.72;lensScale=.72+a*.3;}
     else if(p<.62){var b=smooth((p-.26)/.36);zoom=1.72-b*1.35;lensScale=1.02+b*.24;}
@@ -56,10 +51,10 @@
     if(progress!==target&&!reduce) frame=requestAnimationFrame(paint);
   }
   function request(){if(!frame) frame=requestAnimationFrame(paint);}
-  scene.addEventListener("pointermove",function(e){var r=scene.getBoundingClientRect();px=clamp((e.clientX-r.left)/r.width*2-1);py=clamp((e.clientY-r.top)/r.height*2-1);request();},{passive:true});
-  scene.addEventListener("pointerleave",function(){px=0;py=0;request();});
-  document.addEventListener("motionvariantchange",function(e){variant=e.detail&&e.detail.variant||"flow";scene.setAttribute("data-motion-variant",variant);request();});
-  document.addEventListener("scroll",request,{passive:true}); window.addEventListener("resize",request,{passive:true});
-  paint();
+  function sync(state){
+    target=reduce ? .82 : state.ranges.hero; px=clamp(state.pointer.x)*2-1; py=clamp(state.pointer.y)*2-1;
+    variant=String(state.variant||"FLOW").toLowerCase(); scene.setAttribute("data-motion-variant",variant); request();
+  }
+  document.addEventListener("experiencechange",function(e){sync(e.detail);});
+  if(window.DoebelExperienceState) sync(window.DoebelExperienceState); else paint();
 })();
-

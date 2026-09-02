@@ -17,9 +17,10 @@ ausgewiesen.
 - Version: `v2026.09j`
 - Bestehende Page-ID: `app-25f59af3-4ed153f9`
 - QA: `152 PASS / 0 FAIL`
-- JavaScript: `main.js` 8.000 Byte, `fluid.js` 7.459 Byte roh
-- Transfer: CSS und JavaScript zusammen 20.384 Byte gzip (Budget: 30 KB)
-- Produktionsbuild: 28 Dateien unter `website/dist/`
+- Aktive Rendering-Engine: natives WebGL mit CSS-3D-/DOM-Fallback, ohne externe Runtime
+- JavaScript-Gates: `main.js` 6.812 Byte, `fluid.js` 7.459 Byte roh
+- Transfer: CSS und JavaScript zusammen 21.981 Byte gzip (Budget: 30 KB)
+- Produktionsbuild: 30 Dateien unter `website/dist/`
 - Veröffentlichung ausschließlich als Update der bestehenden Page; keine neue Page anlegen
 
 Ein Produktions-Publish ist nur aus einer Umgebung mit der Infrastruktur der bestehenden Page zulässig. Eine lokale Vorschau ist kein Deployment.
@@ -27,7 +28,7 @@ Ein Produktions-Publish ist nur aus einer Umgebung mit der Infrastruktur der bes
 ## Flagship-System
 
 - Pointer-haptisches WebGL-Fluid mit Rot-Blau-Wärmewaage, DPR-Limit, Sichtbarkeits- und Leerlauf-Stopp
-- Gemeinsamer Scroll-Druckbus für Fluid, Wärmestrom und Tour-Tempo
+- Zentraler `ExperienceStateController` als einzige Scroll-Zeitquelle für Hero, Wärmestrom, Header und Tour
 - Photorealistischer Hero-Renderstack: Altbau, Fußbodenheizung, Kälteanlage und Brennwertkessel als räumliche Tiefenebenen
 - Antman-artige Molekül-View: Scroll zoomt in den VL/RL-Strom, durch den Energie-Kern und wieder heraus
 - Drei wählbare Scroll-Varianten: Kältemittelstrom, Phasenwechsel und Cine-Kern
@@ -39,6 +40,7 @@ Ein Produktions-Publish ist nur aus einer Umgebung mit der Infrastruktur der bes
 - Reduced-Motion-Hartstopp; CSS-/DOM-Motion nur über `transform` und `opacity`
 - Sichtbarer Fokus, mindestens 44 px große Hauptziele, Skip-Link und semantische Landmarks
 - Ein primärer Telefon-CTA je Kontext; Kühlanlagen-Notdienst immer ausdrücklich abgegrenzt
+- Versionierter Web↔UE-Bridge-Vertrag und UE-5.8-C++-Scaffold für einen späteren Pixel-Streaming-Renderlayer; aktuell nicht kompiliert oder live geschaltet
 
 Die sechs Renderings sind dekorative Übergangsassets und keine Projekt-, Team- oder Referenznachweise. Echte Betriebsfotos können sie später bei unveränderten Abmessungen ersetzen.
 
@@ -51,8 +53,11 @@ website/                 auslieferbares statisches Artefakt
   css/style.css          Tokens, Layout, Film- und Motion-System
   js/main.js             Navigation, Reveals, Druckbus und Tour
   js/fluid.js            WebGL-Fluid
+  js/experience-state.js zentrale normalisierte Scroll-Zeitquelle
+  js/ue-bridge.js        validierter optionaler Web↔UE-Nachrichtenkanal
   js/motion-variant.js   drei scrollbare Partikel-/Farbvarianten
   js/hero-render.js      Hero-Tiefenstack, Molekül-Zoom und VL/RL-Partikelstrom
+  tests/                 deterministische State-/Bridge-Tests
   img/                   sechs 1600×900-Renderings
   _headers               Sicherheits- und Cache-Header
   _redirects             Cloudflare-Pages-kompatible Hinweise
@@ -60,6 +65,7 @@ website/                 auslieferbares statisches Artefakt
   sitemap.xml            sieben indexierbare URLs
   llms.txt               freigegebene Betriebsangaben
 docs/                    Handover, Faktenregime und Flagship-Auftrag
+unreal/                  vorbereiteter UE-5.8-Source-Scaffold, nicht vorkompiliert
 qa/qw_audit.py           verbindlicher 152-Punkte-Audit
 ```
 
@@ -68,6 +74,7 @@ qa/qw_audit.py           verbindlicher 152-Punkte-Audit
 ```bash
 cd website
 npm install
+npm test
 npm run dev -- --host 0.0.0.0
 npm run build
 ```
@@ -81,8 +88,8 @@ Vom Repository-Root aus:
 
 ```bash
 python3 qa/qw_audit.py website
-node --check website/js/main.js
-node --check website/js/fluid.js
+npm test --prefix website
+for file in website/js/*.js; do node --check "$file"; done
 test "$(wc -c < website/js/main.js)" -le 8000
 test "$(wc -c < website/js/fluid.js)" -le 8000
 ```
@@ -122,4 +129,3 @@ Keine Preise, Reaktionszeiten, Referenzen, Garantien, Förderversprechen, Wartez
 4. Live-URL, Cache-Version und alle zehn HTML-Routen erneut prüfen.
 
 Cloudflare-Domainweiterleitungen werden als direkte Ein-Hop-301-Regeln auf Zonenebene konfiguriert; Domainregeln gehören nicht in die Pages-Datei `_redirects`. Die Datei `website/ANLEITUNG-DEPLOY.md` enthält die ergänzenden Schritte.
-

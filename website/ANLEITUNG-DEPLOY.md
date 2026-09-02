@@ -8,7 +8,7 @@ angelegt werden.
 
 Der eine öffentliche Repo-Einstieg führt durch die komplette Website:
 
-- `https://htmlpreview.github.io/?https://github.com/designico5/doebel-leipzig/blob/main/website/index.html`
+- `https://htmlpreview.github.io/?https://raw.githubusercontent.com/designico5/doebel-leipzig/main/website/index.html`
 
 Alle Leistungs- und Rechtsseiten sind von dort erreichbar. Der Link rendert den aktuellen Stand
 von `main`, ist aber kein Produktions-Deployment der freigegebenen Page-ID.
@@ -19,14 +19,14 @@ Vom Repository-Root aus:
 
 ```bash
 python3 qa/qw_audit.py website
-node --check website/js/main.js
-node --check website/js/fluid.js
 npm ci --prefix website
+npm test --prefix website
+for file in website/js/*.js; do node --check "$file"; done
 npm run build --prefix website
 ```
 
-Erwartet werden `152 PASS / 0 FAIL`, zwei erfolgreiche Syntaxprüfungen und das vollständige
-statische Artefakt unter `website/dist/`.
+Erwartet werden `152 PASS / 0 FAIL`, 5/5 Unit-Tests, erfolgreiche Syntaxprüfungen aller
+JavaScript-Dateien und das vollständige statische Artefakt unter `website/dist/`.
 
 ## 3. Update, kein Neuanlegen
 

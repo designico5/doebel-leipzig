@@ -11,7 +11,7 @@ erzeugt das deterministische Auslieferungsartefakt:
 - `impressum.html`, `datenschutz.html`, `404.html`, `favicon.svg`, `og.jpg` (1200×630).
   Nicht vorliegende Betreiber-/Registerangaben werden nicht erfunden; rechtliche Vollständigkeit
   bleibt ein Betreiber-/Rechtsberatungs-Gate.
-- `css/style.css` (Token-System Rot×Blau „Stand 2026", Fluid-Zonen, Bento, Motion-Regime), `js/main.js` (Nav+Escape/Fokus, Reveal-Stagger, Tour-Fortschritt, Zähler, Heat-Faden-Fallback, Header-Inversion, Hilferuf), `js/fluid.js` (WebGL-fbm-Metaballs, pointer-haptisch, data-heat, Fallback auf CSS-Mesh, DPR-Cap)
+- `css/style.css` (Token-System Rot×Blau „Stand 2026", Fluid-Zonen, Bento, Motion-Regime), `js/experience-state.js` (zentrale Scroll-Zeitquelle für alle Routen), `js/main.js` (Nav+Escape/Fokus, Reveal-Stagger, Tour-Fortschritt, Zähler, Heat-Faden-Fallback, Header-Inversion, Hilferuf), `js/fluid.js` (WebGL-fbm-Metaballs, pointer-haptisch, data-heat, Fallback auf CSS-Mesh, DPR-Cap), `js/ue-bridge.js` (optionaler versionierter Web↔UE-Kanal)
 - `img/` 6 progressive JPEGs (kessel, kaelte, fussboden, altbau, hande, nachtdienst; je 89–198KB) — **generiert über open-image-2**, Übergangs-Assets für echte Fotos
 - `robots.txt`, `sitemap.xml` (7 indexierbare URLs), `llms.txt`, `_headers` und `_redirects`
 - `.github/workflows/verify.yml` prüft Build, QA und JavaScript-Budgets; kein automatisches
@@ -19,6 +19,10 @@ erzeugt das deterministische Auslieferungsartefakt:
 
 **docs/**: Skill-Mapping, Rollenchronik, Strategie-/IST-Bericht, Bootstrap, Handoff und
 Startanweisung.
+
+**unreal/**: UE-5.8-Source-Scaffold für Level-Sequence-, Material- und Niagara-Ansteuerung.
+Der aktive Produktionsrenderer bleibt natives WebGL; das Unreal-Projekt ist in dieser Umgebung
+weder kompiliert noch als Pixel-Streaming-Runtime veröffentlicht.
 
 ## 2. Designverbindlichkeiten (nicht „verbessern", nur pflegen)
 - Palette: ink #0A1B33/#081926-Mesh · paper #F7F3EC · flame #D62828 / glow #FF4F2E · cool #1746C2 / bright #3B82F6 · ice #8FB8FF/#BBD7FF — **Rot=Wärme/Alarm, Blau=Kälte/Präzision**
@@ -49,7 +53,7 @@ Nichts erfinden: Referenzen, Preise, „Festpreis", Wartezeit-Versprechen.
 FAQPage-Schema bleibt (Google-Rich-Snippet wertlos seit 08/2023, bleibt für AI-Zitierbarkeit) · sitemap ohne Rechtsseiten (noindex) · kein Backend/kein Formular (DSGVO-Minimum) · keine Cookie-Banner (kein Tracking) · Header invertiert pro Zonendetection.
 
 ## 6. Kommandos
-QA: `python3 qa/qw_audit.py website` (Tags/JSON-LD/Anker/Claims/Klammern/Versionen) · JS: `node --check website/js/*.js` · Lokale Vorschau: `python3 -m http.server 3000 -d website`
+QA: `python3 qa/qw_audit.py website` (Tags/JSON-LD/Anker/Claims/Klammern/Versionen) · Unit: `npm test --prefix website` · JS: `node --check website/js/*.js` · Lokale Vorschau: `python3 -m http.server 3000 -d website`
 
 ## 7. Historie in Kurzform (Entscheidungen → warum)
 Statischer Kern → Rot×Blau-System → Mikro-Monteur-Tour → Dark-Immersion und Bento →
@@ -59,7 +63,7 @@ Build-, A11y-, Motion- und Performance-Gates.
 
 ## 8. Release-Status
 - **Repository:** https://github.com/designico5/doebel-leipzig
-- **Komplettvorschau:** https://htmlpreview.github.io/?https://github.com/designico5/doebel-leipzig/blob/main/website/index.html
+- **Komplettvorschau:** https://htmlpreview.github.io/?https://raw.githubusercontent.com/designico5/doebel-leipzig/main/website/index.html
 - **Bestehendes Produktionsziel:** Page-ID `app-25f59af3-4ed153f9`; ausschließlich aktualisieren,
   keine zweite Page anlegen.
 - **QA-Baseline:** `python3 qa/qw_audit.py website` → `PASS 152 / FAIL 0`.
@@ -70,6 +74,10 @@ Build-, A11y-, Motion- und Performance-Gates.
 - A–E aus `docs/FLAGSHIP-ORDER.md` vollständig im Website-Quellstand umgesetzt: thermische
   Fluid-Waage, Scroll-Druckbus, gemeinsame Filmgradierung, siebenstufige Mikro-Monteur-Tour,
   Cine-Morph und Integrationspass.
+- Der Metaglyph-2.1-Roundtrip ist in `docs/UE58_METAGLYPH_PLAN.md` dokumentiert. Die verfügbare
+  native WebGL-Engine nutzt nun einen zentralen, normalisierten Experience-State; der explizite
+  Bridge-Vertrag und der UE-5.8-Controller-Scaffold halten einen späteren High-End-Renderlayer
+  anschlussfähig, ohne den semantischen Webkern zu blockieren.
 - v2026.09i war der technische FLAGSHIP-Pass; v2026.09j ist der anschließende ganzseitige
   Art-Direction-, Fakten-, Conversion-, A11y-, Performance- und Deploy-Kit-Pass.
 - Tour-Art-Pass: tangentiale Monteur-Ausrichtung, dezente Kamerafahrt, semantisch warme Stationen
@@ -84,11 +92,11 @@ Build-, A11y-, Motion- und Performance-Gates.
 - Deploy-Kit korrigiert: `_headers` in gültige Pfadblöcke getrennt; `_redirects` dokumentiert die
   erforderlichen direkten Ein-Hop-Domainregeln, weil diese auf Zonenebene gepflegt werden.
 - Gesamtvorschau aus dem Repository:
-  `https://htmlpreview.github.io/?https://github.com/designico5/doebel-leipzig/blob/main/website/index.html`.
+  `https://htmlpreview.github.io/?https://raw.githubusercontent.com/designico5/doebel-leipzig/main/website/index.html`.
   Sie zeigt den aktuellen `main`-Stand erst nach erfolgreichem Push.
-- Verifikation des lokalen v2026.09j-Standes: `PASS 152 / FAIL 0`,
-  `FLAGSHIP_CONTRACT_PASS`, Produktionsbuild mit 26 Dateien erfolgreich. Größen: `main.js`
-  8.000 Byte, `fluid.js` 7.459 Byte; CSS+JS zusammen 16.747 Byte gzip bei 30-KB-Budget.
+- Verifikation des lokalen v2026.09j-Standes: `PASS 152 / FAIL 0`, 5/5 State-/Bridge-Tests,
+  Produktionsbuild mit 30 Dateien erfolgreich. Größen: `main.js` 6.812 Byte,
+  `fluid.js` 7.459 Byte; CSS+JS zusammen 21.981 Byte gzip bei 30-KB-Budget.
   Browsercheck: Desktop ohne horizontalen Überlauf, Tourzustände 1–7 und semantische Warm-/
   Kalt-Aktivmarkierung verifiziert.
 - Auslieferungsstatus: bestehende Page-ID `app-25f59af3-4ed153f9` bleibt unverändert; eine

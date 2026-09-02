@@ -22,9 +22,9 @@ jobs:
         run: npm run build --prefix website
       - name: Run contract gates
         run: |
+          npm test --prefix website
           python3 qa/qw_audit.py website
-          node --check website/js/main.js
-          node --check website/js/fluid.js
+          for file in website/js/*.js; do node --check "$file"; done
           test "$(wc -c < website/js/main.js)" -le 8000
           test "$(wc -c < website/js/fluid.js)" -le 8000
       - name: Upload verified artifact
