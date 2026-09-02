@@ -1,35 +1,63 @@
-# In 20 Minuten live — Alexander Döbel Leipzig
-## Cloudflare Pages + Domain doebel-leipzig.de (kostenlos, unbegrenzte Bandbreite)
+# Döbel Leipzig · Build und Update der bestehenden Page
 
-**Was Sie brauchen:** Cloudflare-Konto (kostenlos), Zugang zum Domain-Registrar von doebel-leipzig.de (dort, wo Sie die Domain gekauft haben).
+Diese Website wird ausschließlich als neue Version der vorhandenen Page
+`app-25f59af3-4ed153f9` ausgeliefert. Es darf kein zweites Pages-Projekt und keine neue Page
+angelegt werden.
 
-### Teil A — Seite hochladen (einmalig, ~5 Min)
-1. https://dash.cloudflare.com → links **Workers & Pages → Create → Pages → Upload assets** (Direct Upload).
-2. Projektname: `doebel-leipzig` → **Create project**.
-3. Den kompletten Inhalt des Ordners `website/` per Drag & Drop hochladen (index.html liegt oben mit druckfrisch). Deploy starten.
-4. Die Vorschau-URL (`*.pages.dev`) erscheint sofort — damit können Sie alles prüfen, bevor die echte Domain zeigt.
+## 1. Gesamtvorschau
 
-### Teil B — Echte Domain anschalten (~5 Min + Wartezeit beim Registrar)
-1. Im Pages-Projekt: **Custom domains → Connect domain** → `doebel-leipzig.de` (ohne www) eintragen.
-2. Cloudflare führt Sie durch die Domain-Übernahme: **Nameserver** NOTIEREN (2 Stück, enden auf `ns1.cloudflare...`).
-3. Beim **Registrar Ihrer Domain**: DNS/Nameserver-Einstellung öffnen → die zwei Cloudflare-Nameserver eintragen → speichern. (Zugriff? Meist der Provider, bei dem die Domain gekauft wurde.)
-4. Warten: international bis zu 24 h, oft<1 h. Cloudflare zeigt „Active", HTTPS/SSL läuft ab dann automatisch.
-5. Zweite Domain anhängen: `www.doebel-leipzig.de` → leitet per `_redirects` automatisch auf die Hauptdomain.
+Der eine öffentliche Repo-Einstieg führt durch die komplette Website:
 
-### Teil C — alte Domain umbiegen (Marken-Konsolidierung)
-1. `leipzigtherm.de` ebenfalls bei Cloudflare als Custom Domain verbinden.
-2. Die hinterlegten `_redirects`-Regeln leiten **automatisch jede Seite** von LeipzigTherm auf doebel-leipzig.de (301 — behält Google-Links & Ranking-Signale).
+- `https://htmlpreview.github.io/?https://github.com/designico5/doebel-leipzig/blob/main/website/index.html`
 
-### Teil D — nach jeder Änderung aktualisieren
-Pages-Projekt → **Upload assets → new deployment** → frischen Ordner reinziehen, fertig. Alternativ später Git-Workflow (Vorlage `.github/workflows/deploy.yml` liegt bei: einmal Repo verknüpfen, dann automatischer Build+Vorschau bei jedem Push).
+Alle Leistungs- und Rechtsseiten sind von dort erreichbar. Der Link rendert den aktuellen Stand
+von `main`, ist aber kein Produktions-Deployment der freigegebenen Page-ID.
 
-### Checkliste nach dem Livegang (15 Min)
-- [ ] doebel-leipzig.de im Browser → Schloss-Symbol (HTTPS) ✓
-- [ ] Impressum/Datenschutz erreichbar (Footer) — **Platzhalter USt-ID + Kammer eintragen**
-- [ ] leipzigtherm.de tippen → kommt automatisch auf der neuen Seite an ✓
-- [ ] Google Unternehmensprofil anlegen/aktualisieren: exakt dieselben Daten wie im Footer (Name, Kippenbergstraße 10, 04317, Tel +49 172 8821200, Zeiten) — größter Hebel für lokale Suchtreffer
-- [ ] Testanruf & Testmail: Mailbox-Anschrift prüfen („Wir sind nicht im Büro…“ vermeiden)
-- [ ] Handynummer-Annahme Mo–Sa ab 7 Uhr organisieren (die Seite verspricht Erreichbarkeit — bitte einlösen)
+## 2. Gates und Produktionsbuild
 
-### Rechtlicher Hinweis vor dem Livegang
-Impressum-Pflichtangaben vervollständigen (Kammer-Eintragung, USt-ID; Gesellschafter-/Vertretungsfrage der GbR mit Steuerberater/Anwalt klären). Die Datenschutzerklärung beschreibt den aktuellen Zustand ohne Tracker.
+Vom Repository-Root aus:
+
+```bash
+python3 qa/qw_audit.py website
+node --check website/js/main.js
+node --check website/js/fluid.js
+npm ci --prefix website
+npm run build --prefix website
+```
+
+Erwartet werden `152 PASS / 0 FAIL`, zwei erfolgreiche Syntaxprüfungen und das vollständige
+statische Artefakt unter `website/dist/`.
+
+## 3. Update, kein Neuanlegen
+
+Nur in einer Umgebung mit der bestehenden QW-Pages-Infrastruktur veröffentlichen. Den Stand
+zuerst als Checkpoint sichern, dann `website/dist/` mit exakt diesen unveränderten Parametern
+publizieren:
+
+- `page_id`: `app-25f59af3-4ed153f9`
+- `page_action`: `update`
+- Quelle: aktueller Commit aus `github.com/designico5/doebel-leipzig`
+
+Ist die Infrastruktur oder die Berechtigung nicht vorhanden, endet der Ablauf nach dem Build.
+In diesem Fall keine Ersatz-Page und kein separates Cloudflare-Pages-Projekt erzeugen.
+
+## 4. Domain und Weiterleitungen
+
+Die Website-Datei `_redirects` enthält absichtlich keine Domainregeln. Domainweite
+Weiterleitungen werden in Cloudflare als direkte Ein-Hop-301-Regeln auf Zonenebene gepflegt:
+
+- `www.doebel-leipzig.de/*` → `https://doebel-leipzig.de/:splat`
+- `leipzigtherm.de/*` → `https://doebel-leipzig.de/:splat`
+- `www.leipzigtherm.de/*` → `https://doebel-leipzig.de/:splat`
+
+Nach einem berechtigten Update Root, CSS, JavaScript, alle sechs Leistungsseiten, Rechtsseiten,
+404-Verhalten und die drei Weiterleitungen im Browser prüfen. Die neue Versionsnummer und die
+vom Publisher zurückgegebene Deployment-ID im Handoff protokollieren.
+
+## 5. Vor dem öffentlichen Livegang
+
+- Impressumsangaben, deren Werte nicht im Faktenregime freigegeben sind, durch den Betreiber
+  beziehungsweise Rechtsbeistand vervollständigen; nichts schätzen oder ergänzen.
+- NAP-Daten mit dem Google-Unternehmensprofil abgleichen.
+- Testanruf und Testmail durchführen.
+- Lighthouse auf der echten Produktionsdomain messen.

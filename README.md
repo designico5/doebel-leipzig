@@ -1,47 +1,119 @@
-<div align="center">
+# Döbel Leipzig · Flagship v2026.09j
 
-# 🔥 Döbel Leipzig — Wärme & Kälte. SOTA-Edition 2026.
+Statische Premium-Website für die Alexander Döbel GbR in Leipzig. Der Auftritt verbindet Wärme, Luft und Kälte in einem gemeinsamen visuellen und technischen System: Rot steht für Wärme und Kühlanlagen-Notdienst, Blau für Kälte und Präzision.
 
-**Die Web-Präsenz eines Leipziger SHK-Meisterbetriebs. Null Build, null Tracker — und trotzdem Kino.**
-Live: https://hxad9lg6.qwenwork.page/ · Übergabe-Kiosk: https://hxad9lg6.qwenwork.page/handover/
+## Komplettvorschau
 
-`QA-Gate 152/152` · `Lighthouse-Roadmap ≥95` · `WCAG-Pfade` · `reduced-motion-fest` · `0 Tracker`
+- [Komplette AIO-Repo-Vorschau öffnen](https://htmlpreview.github.io/?https://github.com/designico5/doebel-leipzig/blob/main/website/index.html)
+- [GitHub-Repository](https://github.com/designico5/doebel-leipzig)
 
-</div>
+Der eine AIO-Einstieg rendert den aktuellen Stand des Branches `main`; alle Leistungen und
+Unterseiten bleiben innerhalb derselben Repo-Vorschau verlinkt. Das bestehende Produktionsziel
+wird erst nach einem erfolgreichen Build und Update der freigegebenen Page-ID als Live-Link
+ausgewiesen.
 
-## 🎬 Was diese Site besonders macht
-| Feature | Technology | Zu sehen |
-|---|---|---|
-| Atmender Hero | handgeschriebener WebGL-Fluid-Shader (fbm-Metaballs), pointer-haptisch | Startseite |
-| Ant-Man-Tour | scrollgesteuerte 7-Stationen-Reise: blubbernde Wärmeleitung, dampfende Kälte, Zündfunken im Scroll-Tempo | `#tour` |
-| Kinobänder | 6 KI-Renderings mit Ken-Burns-Drift, einheitliche Film-Grade + Vignette | `#wuermewende`, `#notdienst`, Gründerzeit-Band |
-| Designcode Rot×Blau | Rot = Wärme & Alarm, Blau = Kälte & Präzision · Archivo + IBM Plex · Papierkorn | alles |
-| Conversion-Kaskade | Telefon zuerst: Header, Mobile-Klebebar, FAQ-CTA, 1× Scroll-Hilferuf | mobil & desktop |
-| Fakten-Disziplin | nur belegte Aussagen; Impressum mit sichtbaren Platzhaltern | docs/AGENT-HANDOFF.md §3 |
+## Aktueller Stand
 
-## 🗂 Struktur
+- Version: `v2026.09j`
+- Bestehende Page-ID: `app-25f59af3-4ed153f9`
+- QA: `152 PASS / 0 FAIL`
+- JavaScript: `main.js` 8.000 Byte, `fluid.js` 7.459 Byte roh
+- Transfer: CSS und JavaScript zusammen 16.747 Byte gzip (Budget: 30 KB)
+- Produktionsbuild: 26 Dateien unter `website/dist/`
+- Veröffentlichung ausschließlich als Update der bestehenden Page; keine neue Page anlegen
+
+Ein Produktions-Publish ist nur aus einer Umgebung mit der Infrastruktur der bestehenden Page zulässig. Eine lokale Vorschau ist kein Deployment.
+
+## Flagship-System
+
+- Pointer-haptisches WebGL-Fluid mit Rot-Blau-Wärmewaage, DPR-Limit, Sichtbarkeits- und Leerlauf-Stopp
+- Gemeinsamer Scroll-Druckbus für Fluid, Wärmestrom und Tour-Tempo
+- Siebenstufige Mikro-Monteur-Tour entlang einer unveränderten SVG-Route
+- Tangentenbasierte Figurenausrichtung, dezente Kamerafahrt und aktuelle Kontrollstation
+- Gemeinsame Filmgradierung, gerichtetes Licht, Korn, Vignette und feste Kinoapertur für alle Renderings
+- Thermisches Bento-Raster mit semantischen Wärme-, Luft- und Kältekanten
+- Header-Inversion über dunklen Zonen und transformbasierte Thermal-Scanline
+- Reduced-Motion-Hartstopp; CSS-/DOM-Motion nur über `transform` und `opacity`
+- Sichtbarer Fokus, mindestens 44 px große Hauptziele, Skip-Link und semantische Landmarks
+- Ein primärer Telefon-CTA je Kontext; Kühlanlagen-Notdienst immer ausdrücklich abgegrenzt
+
+Die sechs Renderings sind dekorative Übergangsassets und keine Projekt-, Team- oder Referenznachweise. Echte Betriebsfotos können sie später bei unveränderten Abmessungen ersetzen.
+
+## Verzeichnisstruktur
+
 ```text
-website/    10 Seiten (Start + 6 Long-Tail + Recht + 404) · css/ js/ img/ ·
-            Cloudflare-Kit (_headers/_redirects/robots/sitemap/llms.txt/og.jpg)
-            + ANLEITUNG-DEPLOY.md
-docs/       HANDOFF-Gedächtnis · FLAGSHIP-ORDER · TEAM_12 · SKILL_FRAMEWORK ·
-            Strategie-/IST-Report · Kiosk-Kopie · ci/deploy.yml.example
-qa/         qw_audit.py — 152-Punkte-Gate (Tags, JSON-LD, Claims, Anker, Artefakte)
+website/                 auslieferbares statisches Artefakt
+  index.html             One-Pager und strukturierte Daten
+  *-leipzig.html         sechs Leistungsseiten
+  css/style.css          Tokens, Layout, Film- und Motion-System
+  js/main.js             Navigation, Reveals, Druckbus und Tour
+  js/fluid.js            WebGL-Fluid
+  img/                   sechs 1600×900-Renderings
+  _headers               Sicherheits- und Cache-Header
+  _redirects             Cloudflare-Pages-kompatible Hinweise
+  robots.txt             Crawler-Regeln
+  sitemap.xml            sieben indexierbare URLs
+  llms.txt               freigegebene Betriebsangaben
+docs/                    Handover, Faktenregime und Flagship-Auftrag
+qa/qw_audit.py           verbindlicher 152-Punkte-Audit
 ```
 
-## 🚀 Schnellstart
+## Lokale Vorschau
+
 ```bash
-python3 qa/qw_audit.py website          # 152 PASS = Sollzustand, vor jeder Änderung laufen lassen
-# QW Page: nur UPDATE auf page_id app-25f59af3-4ed153f9 (Checkpoint → Build → publish.py … update)
-# Cloudflare Pages: Framework None, kein Build, Output „website"
-# Neue Session?  https://hxad9lg6.qwenwork.page/handover/INSTRUCTION.txt  (geführter Transfer)
+cd website
+npm install
+npm run dev -- --host 0.0.0.0
+npm run build
 ```
 
-## ✅ Bewusst offen (Inhaber-Eingabe)
-USt-ID + Kammer im Impressum · §5-DDG-Gesellschafter-Frage (Anwalts-Gate) · echte Fotos → `img/*.jpg` 1:1 tauschen · Fonts self-hosten · Lighthouse auf echter Domain
+Vite meldet anschließend die lokale Vorschau-URL; der Produktionsbuild liegt unter `dist/`.
+Die Seite benötigt kein Framework und kein Laufzeit-Backend.
 
-## ♿ Hausordnung
-HANDOFF schlägt Meinung · keine Unbelegtheiten · Motion-Respekt Pflicht · QA vor Delivery · Update statt Neue-Page.
+## Verifikation
 
----
-Gebaut von einem 14-Rollen-Agentur-Harness · © 2026 Alexander Döbel GbR · Impressum · Datenschutz · [Live](https://hxad9lg6.qwenwork.page/)
+Vom Repository-Root aus:
+
+```bash
+python3 qa/qw_audit.py website
+node --check website/js/main.js
+node --check website/js/fluid.js
+test "$(wc -c < website/js/main.js)" -le 8000
+test "$(wc -c < website/js/fluid.js)" -le 8000
+```
+
+Zusätzlich vor jeder Veröffentlichung prüfen:
+
+- Desktop, Tablet und Mobile ohne horizontalen Überlauf
+- Tastaturbedienung von Menü, FAQ und allen CTAs
+- `prefers-reduced-motion: reduce` ohne laufende Animation
+- sichtbare Fokusringe und Touch-Ziele ab 44 px
+- FAQ und FAQ-JSON-LD wortgleich
+- NAP-Daten überall identisch
+- genau ein gemeinsamer Google-Fonts-Stylesheet-URL-Strang
+- genau ein Asset-Cache-Key-Strang (`v2026.09j`)
+
+## Faktenregime
+
+Öffentliche Aussagen dürfen nur aus `docs/AGENT-HANDOFF.md` §3 stammen. Freigegeben sind insbesondere:
+
+- Alexander Döbel GbR; Inhaber Alexander Döbel
+- Installateur- und Heizungsbauermeister / Meisterbetrieb
+- Kippenbergstraße 10, 04317 Leipzig
+- Montag bis Samstag, 07:00–17:00 Uhr
+- +49 172 8821200, info@doebel-leipzig.de, doebel-leipzig.de
+- Heizungs- und Lüftungsbau, Brennwerttechnik, Kältetechnik, Kühlanlagen-Wartung
+- Fußbodenheizung-Nachrüstung im Altbau und Altbausanierung
+- Kühlanlagen-Notdienst rund um die Uhr
+- Buderus als Marktführer bei Gas-Brennwerttechnik; Brötje-Fachpartner
+
+Keine Preise, Reaktionszeiten, Referenzen, Garantien, Förderversprechen, Wartezeiten, nicht belegten Anlagentypen oder zusätzlichen Leistungsumfänge ergänzen.
+
+## Deployment
+
+1. Integritäts- und QA-Gates ausführen.
+2. Nur die bestehende Page-ID `app-25f59af3-4ed153f9` aktualisieren.
+3. Build und Deployment-ID protokollieren.
+4. Live-URL, Cache-Version und alle zehn HTML-Routen erneut prüfen.
+
+Cloudflare-Domainweiterleitungen werden als direkte Ein-Hop-301-Regeln auf Zonenebene konfiguriert; Domainregeln gehören nicht in die Pages-Datei `_redirects`. Die Datei `website/ANLEITUNG-DEPLOY.md` enthält die ergänzenden Schritte.

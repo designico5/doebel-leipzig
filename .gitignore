@@ -1,4 +1,5 @@
 .DS_Store
 *.log
 node_modules/
+website/dist/
 .DS_Store

@@ -1,4 +1,4 @@
-https://leipzigtherm.de/* https://doebel-leipzig.de/:splat 301
-https://www.leipzigtherm.de/* https://doebel-leipzig.de/:splat 301
-https://www.doebel-leipzig.de/* https://doebel-leipzig.de/:splat 301
-/* /404.html 404
+# Domain redirects are configured as one-hop 301 rules in Cloudflare Bulk Redirects:
+# leipzigtherm.de/* and www.leipzigtherm.de/* -> https://doebel-leipzig.de/:splat
+# www.doebel-leipzig.de/* -> https://doebel-leipzig.de/:splat
+# Cloudflare Pages serves /404.html automatically for missing static routes.

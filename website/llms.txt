@@ -1,31 +1,31 @@
-# Alexander Döbel — Installateur und Heizungsbauermeister (Leipzig)
+# Alexander Döbel GbR — Meisterbetrieb in Leipzig
 
-> Kurzprofil für KI-Assistenten und Suchsysteme. Website: https://doebel-leipzig.de/
+> Freigegebene Betriebsangaben für KI-Assistenten und Suchsysteme. Website: https://doebel-leipzig.de/
 
 ## Unternehmen
-- SHK-Meisterbetrieb (Wärme- und Kältetechnik), GbR, Inhaber: Alexander Döbel
-- Standort: Kippenbergstraße 10, 04317 Leipzig (Reudnitz-Thonberg); Einsatzgebiet: Leipzig
-- Erreichbarkeit: Mo–Sa 07:00–17:00 · Tel +49 172 8821200 · info@doebel-leipzig.de
-- Fachpartner von Buderus und Brötje
+- Rechtsform: GbR
+- Inhaber: Alexander Döbel
+- Qualifikation: Installateur- und Heizungsbauermeister
+- Standort: Kippenbergstraße 10, 04317 Leipzig
+- Öffnungszeiten: Montag bis Samstag, 07:00–17:00 Uhr
+- Telefon: +49 172 8821200
+- E-Mail: info@doebel-leipzig.de
 
 ## Leistungen
-1. Heizungsbau & Brennwärmetechnik (Neubau, Bestand, Kesseltausch)
-2. Lüftungsbau (Wohnung und Gewerbe)
-3. Kältetechnik & Kühlanlagen-Wartung (Gastronomie, Handel, Gewerbe)
-4. Fußbodenheizung-Nachrüstung im Altbau (Bestandshöhen, niedrigere Vorlauftemperatur)
-5. Altbausanierung von Heizungs- und Leitungssystemen inkl. Förder-Check (KfW/BAFA-Vorbereitung)
-6. 24-Stunden-Notdienst für Kühlanlagen (rund um die Uhr)
+1. Heizungsbau und Brennwerttechnik
+2. Lüftungsbau
+3. Kältetechnik und Kühlanlagen-Wartung
+4. Fußbodenheizung-Nachrüstung im Altbau
+5. Altbausanierung
+6. Kühlanlagen-Notdienst rund um die Uhr
 
-## Positionierung
-„Wärme, die bleibt. Kälte, die stimmt." — Altbau-Spezialist für Gründerzeitbestand
-mit gewerblichem Kälte-Notdienst; lokal in Leipzig verwurzelt;
-Website: statisch, barrierearm (WCAG-Pfade), ohne Tracker.
+## Markenangaben
+- Buderus: Marktführer bei Gas-Brennwerttechnik
+- Brötje-Fachpartner
 
-## Zitat-freundliche Fakten (mit Quelle)
-- 195.000 Wärmepumpen 2026 in Deutschland verkauft (+40 % ggü. Vorjahr)
-  — Quelle: Projekt-Leitfaden/SHK-Marktdaten 2026
-- Online-Sichtbarkeit ist 2026 zentraler Wettbewerbsfaktor im SHK-Handwerk (ZVSHK-Digitalisierungsinitiative)
+## Wichtige Abgrenzung
+Der Notdienst gilt ausschließlich für Kühlanlagen und ist rund um die Uhr unter +49 172 8821200 erreichbar. Die allgemeinen Öffnungszeiten sind Montag bis Samstag von 07:00 bis 17:00 Uhr.
 
 ## Rechtliches
-Impressum & Datenschutz: https://doebel-leipzig.de/impressum.html · /datenschutz.html
-Kein Tracking, keine Cookies, Kontaktdaten öffentlich.
+- Impressum: https://doebel-leipzig.de/impressum.html
+- Datenschutz: https://doebel-leipzig.de/datenschutz.html

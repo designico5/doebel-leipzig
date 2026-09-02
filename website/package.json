@@ -1,0 +1,12 @@
+{
+  "name": "doebel-leipzig-preview",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node build.mjs"
+  },
+  "devDependencies": {
+    "vite": "^8.2.2"
+  }
+}

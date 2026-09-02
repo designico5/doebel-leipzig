@@ -58,12 +58,10 @@ LCP: keine Bild-URL ändern; alle lazy bleiben, hero-freie Bilder decoding="asyn
    Tests erhalten (qa q_blacklists!, route d-Attribut = CSS offset-path dup — bei Änderung beide!).
 2. `node --check` js, `python3 qa/qw_audit.py website` → 152 PASS. Bei <152 fixen, nicht ändern.
 3. docs/AGENT-HANDOFF.md §8 ergänzen: „v2026.09i FLAGSHIP-Pass executed (Datum)" + Diff-Kurzzettel.
-4. GitHub pushen (gh existiert; designico5). V2-Publish auf QW Page NUR falls diese Session
-   die /mnt/pages-Infra + page_repo.py/qw-pages-Skills besitzt: prepare→open --page-id
-   app-25f59af3-4ed153f9 (action=update)→Vite-Einstand (base "./", index-Andockpunkte
-   #root und module script erhalten!)→checkpoint→build→publish --page-action update.
-   Falls QW-Infra NICHT vorhanden (lokale Umgebung): Schritt 4 weglassen; Packet/Git reicht,
-   V2 mache ich in der QW-Welt.
+4. GitHub pushen. Das bestehende Produktionsziel nur über dessen autorisierten Update-Workflow
+   und ausschließlich mit Page-ID `app-25f59af3-4ed153f9` aktualisieren; niemals eine zweite
+   Page anlegen. Ist dieser Workflow nicht verfügbar, endet die Auslieferung beim geprüften
+   Repository-Stand und wird nicht als Produktions-Publish bezeichnet.
 5. EXIT-MELDUNG an mich: QA-Ergebnis, geänderte Dateien + Linesize, neue Versionsnummer,
    URL wenn gepusht/publishiert.
 
