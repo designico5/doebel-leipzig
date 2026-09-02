@@ -29,6 +29,7 @@ changes only grammar and world will fail it.
 | Build | Grammar | Nav treatment | Hero device | Act-sequence shape | Close pattern | Signature move | World | Port |
 |---|---|---|---|---|---|---|---|---|
 | Döbel Leipzig 2026 | Split Stage | fixed sparse perimeter chrome | cold/warm image poles split by a live seam | seven-act hourglass with a long central peak | paper contact aperture collapses over the system | Thermal Exchange Seam transfers energy while keeping media visibly separate | Leipzig building services: heat, air, refrigeration | responsive DOM/CSS/Canvas |
+| Döbel Leipzig Worldflight 2026 | Worldflight | thermodynamic route rail with live system state | procedural cold, warm and air circuits assemble around one plate core | eight overlapping camera legs with a long exchange peak | system reconstructs into a light contact-and-FAQ surface | Self-Rewiring Building Circuit turns one technical system into every meaning layer | Leipzig building-services system in continuous spatial flight | WebGL plus semantic DOM |
 
 ---
 
@@ -42,6 +43,9 @@ as a constraint, so writing them down is the whole point.
 - Split Stage with sparse perimeter chrome and a seven-act hourglass score.
 - Paper contact aperture as the close pattern.
 - Thermal Exchange Seam as the signature move.
+- Worldflight with a thermodynamic route rail and eight overlapping camera legs.
+- System reconstruction into a light contact-and-FAQ surface as the close pattern.
+- Self-Rewiring Building Circuit as the signature move.
 
 ---
 
