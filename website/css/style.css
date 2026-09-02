@@ -622,7 +622,7 @@ section[id]{scroll-margin-top:88px}
 .call-card::after{content:"";position:absolute;inset:auto 12% 0;height:3px;background:linear-gradient(90deg,var(--cool-bright),var(--flame))}
 
 /* Scrollcraft hero: eine zusammenhaengende Reise vom Altbau in den Kreislauf. */
-.hero{min-height:420svh;padding:0;background:#020912;--copy-o:1;--copy-y:0px;--scene-x:0vw;--scene-y:0px;--scene-s:1;--quantum-o:0;--quantum-s:1;--diagram-o:.64}
+.hero{min-height:420svh;padding:0;overflow:clip;background:#020912;--copy-o:1;--copy-y:0px;--scene-x:0vw;--scene-y:0px;--scene-s:1;--quantum-o:0;--quantum-s:1;--diagram-o:.64}
 .hero>.wrap{position:sticky;top:0;width:100%;max-width:none;min-height:100svh;margin:0;padding:clamp(6.2rem,10vh,8.5rem) clamp(1.25rem,6vw,7.5rem) 2.5rem;display:grid;grid-template-columns:minmax(300px,.72fr) minmax(0,1.28fr);gap:clamp(1.5rem,4vw,5rem);align-items:center;overflow:hidden}
 .hero-copy-scrim{position:absolute;z-index:10;inset:0 38% 0 0;pointer-events:none;background:linear-gradient(90deg,rgba(2,9,18,.97) 0%,rgba(2,9,18,.9) 58%,rgba(2,9,18,0) 100%)}
 .hero-copy{position:relative;z-index:12;max-width:670px;opacity:var(--copy-o);transform:translate3d(0,var(--copy-y),0);will-change:transform,opacity}
