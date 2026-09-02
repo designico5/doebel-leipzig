@@ -18,7 +18,7 @@ ausgewiesen.
 - Bestehende Page-ID: `app-25f59af3-4ed153f9`
 - QA: `152 PASS / 0 FAIL`
 - JavaScript: `main.js` 8.000 Byte, `fluid.js` 7.459 Byte roh
-- Transfer: CSS und JavaScript zusammen 16.747 Byte gzip (Budget: 30 KB)
+- Transfer: CSS und JavaScript zusammen 20.384 Byte gzip (Budget: 30 KB)
 - Produktionsbuild: 28 Dateien unter `website/dist/`
 - Veröffentlichung ausschließlich als Update der bestehenden Page; keine neue Page anlegen
 
