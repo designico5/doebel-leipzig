@@ -4,7 +4,7 @@ Statische Premium-Website für die Alexander Döbel GbR in Leipzig. Der Auftritt
 
 ## Komplettvorschau
 
-- [Komplette AIO-Repo-Vorschau öffnen](https://htmlpreview.github.io/?https://github.com/designico5/doebel-leipzig/blob/main/website/index.html)
+- [Komplette AIO-Repo-Vorschau öffnen](https://htmlpreview.github.io/?https://raw.githubusercontent.com/designico5/doebel-leipzig/main/website/index.html)
 - [GitHub-Repository](https://github.com/designico5/doebel-leipzig)
 
 Der eine AIO-Einstieg rendert den aktuellen Stand des Branches `main`; alle Leistungen und
