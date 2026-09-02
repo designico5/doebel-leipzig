@@ -441,7 +441,7 @@ beginnen. Phase C bleibt bis zu UE5.8-Runtime, 3D-Assets, Rechten und Hosting ex
 - [ ] Desktop, Tablet, Mobile und Reduced Motion transportieren gleiche Story;
 - [x] Build, Parser, State-/Bridge-Tests, 152er-QA und Budgets bestehen;
 - [x] README/Handoff stimmen mit dem tatsächlichen Stand überein;
-- [ ] öffentlicher Repo-Stand und AIO-Vorschau sind readback-geprüft.
+- [x] öffentlicher Repo-Stand und AIO-Vorschau sind readback-geprüft.
 
 ### Für echte UE5.8-Finalproduktion
 
