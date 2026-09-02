@@ -655,6 +655,8 @@ section[id]{scroll-margin-top:88px}
 .hero-scene::before{inset:3%;z-index:11}.hero-scene::after{inset:10%;z-index:11}
 .hero-scene[data-motion-variant="phase"] .hero-quantum{filter:hue-rotate(-18deg) saturate(1.24)}
 .hero-scene[data-motion-variant="cine"] .hero-quantum{filter:contrast(1.18) saturate(.72)}
+.hero-scene[data-hero-stage] .hero-diagram{opacity:var(--diagram-o)}
+.hero-scene[data-renderer="css-fallback"] .hero-quantum{background:repeating-radial-gradient(circle at 50% 50%,transparent 0 34px,rgba(143,184,255,.24) 36px,transparent 39px),radial-gradient(circle at 50% 50%,rgba(255,108,72,.8) 0,rgba(59,130,246,.4) 12%,rgba(4,17,36,.2) 42%,rgba(2,9,18,.92) 76%)}
 
 @media (max-width:920px){
   .hero{min-height:360svh}
