@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;0,800;1,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2026.09j&amp;b=4">
+  <link rel="stylesheet" href="css/style.css?v=2026.09j&amp;b=5">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -88,12 +88,18 @@
     <section class="hero" aria-labelledby="hero-t">
       <canvas class="fluid" data-heat="2" aria-hidden="true" data-k1="0.84,0.16,0.16" data-k2="0.13,0.36,0.95" data-k3="0.04,0.10,0.19"></canvas>
       <div class="wrap">
-        <div>
+        <div class="hero-copy-scrim" aria-hidden="true"></div>
+        <div class="hero-copy">
           <span class="eyebrow">Alexander Döbel GbR · Meisterbetrieb in Leipzig</span>
           <h1 id="hero-t">Wärme. Luft. Kälte.<br><em>Ein Meisterbetrieb.</em></h1>
           <p class="lead">Heizungs- und Lüftungsbau, Kältetechnik und Kühlanlagen-Wartung. Dazu Fußbodenheizung-Nachrüstung im Altbau, Altbausanierung und Brennwerttechnik.</p>
           <div class="hero-cta">
             <a class="btn btn-primary" href="tel:+491728821200">Jetzt anrufen · 0172 8821200</a>
+          </div>
+          <div class="hero-modes" role="group" aria-label="Darstellung der Scrollreise">
+            <button type="button" data-hero-motion="flow" aria-pressed="true">Kältemittelstrom</button>
+            <button type="button" data-hero-motion="phase" aria-pressed="false">Phasenwechsel</button>
+            <button type="button" data-hero-motion="cine" aria-pressed="false">Cine-Kern</button>
           </div>
           <p class="cta-micro">Mo–Sa 07:00–17:00 Uhr · Kühlanlagen-Notdienst rund um die Uhr.</p>
           <ul class="hero-chips" aria-label="Kennzahlen des Betriebs">
@@ -105,6 +111,7 @@
         </div>
         <figure class="hero-scene" aria-hidden="true">
           <div class="hero-render-stack" data-hero-render="molecule">
+            <canvas class="hero-quantum"></canvas>
             <div class="hero-render-card hero-render-card--building" data-depth="-1.2"><img src="img/altbau.jpg" alt="" width="1600" height="900" fetchpriority="high" decoding="async"></div>
             <div class="hero-render-card hero-render-card--floor" data-depth="-.45"><img src="img/fussboden.jpg" alt="" width="1600" height="900" decoding="async"></div>
             <div class="hero-render-card hero-render-card--cold" data-depth=".3"><img src="img/kaelte.jpg" alt="" width="1600" height="900" decoding="async"></div>
@@ -112,6 +119,7 @@
             <div class="hero-render-tunnel" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
             <div class="hero-render-particles" aria-hidden="true"></div>
             <div class="hero-render-lens"><span class="hero-lens-label">MOLEKÜL‑VIEW</span><b>VL&nbsp;→&nbsp;RL</b><small>Kältemittel · Wärme · Luft</small></div>
+            <div class="hero-stage-hud"><span>ALTBAU</span><span>ROHR</span><span>MOLEKÜL</span><span>WÄRMETAUSCHER</span><span>SYSTEM</span><i></i></div>
           </div>
           <svg class="hero-diagram" viewBox="0 0 380 340" width="100%">
             <defs><linearGradient id="heatgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#D62828"/></linearGradient></defs>
@@ -140,7 +148,6 @@
             <text class="hero-rl-label" x="290" y="222" font-family="IBM Plex Mono, monospace" font-size="12" fill="#3B82F6">RL</text>
           </svg>
         </figure>
-        <a class="scroll-cue" href="#wuermewende">Weiterlesen <i aria-hidden="true"></i></a>
       </div>
     </section>
 
@@ -496,11 +503,11 @@
     <a class="mbar-mail" href="mailto:info@doebel-leipzig.de">E-Mail</a>
   </div>
 
-  <script src="js/experience-state.js?v=2026.09j&amp;b=1" defer></script>
+  <script src="js/experience-state.js?v=2026.09j&amp;b=2" defer></script>
   <script src="js/ue-bridge.js?v=2026.09j&amp;b=1" defer></script>
   <script src="js/main.js?v=2026.09j&amp;b=4" defer></script>
   <script src="js/fluid.js?v=2026.09j&amp;b=3" defer></script>
-  <script src="js/motion-variant.js?v=2026.09j&amp;b=5" defer></script>
-  <script src="js/hero-render.js?v=2026.09j&amp;b=2" defer></script>
+  <script src="js/motion-variant.js?v=2026.09j&amp;b=6" defer></script>
+  <script src="js/hero-render.js?v=2026.09j&amp;b=3" defer></script>
 </body>
 </html>
