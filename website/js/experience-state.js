@@ -15,6 +15,11 @@
     var el=doc.querySelector(selector); if(!el) return 0;
     var rect=el.getBoundingClientRect(); return core.clamp((root.innerHeight*anchor-rect.top)/(Math.max(1,rect.height)*span));
   }
+  function sectionProgress(selector){
+    var el=doc.querySelector(selector); if(!el) return 0;
+    var rect=el.getBoundingClientRect();
+    return core.sectionProgress(rect.top,rect.height,root.innerHeight);
+  }
   function measure(){
     var now=performance.now(),y=root.scrollY,elapsed=Math.max(16,Math.min(120,now-lastTime));
     velocityTarget=reduce?0:core.clamp(Math.abs(y-lastY)/elapsed/2.2); lastY=y; lastTime=now; request();
@@ -24,7 +29,7 @@
     state.progress=core.clamp(page.scrollTop/den); state.velocity+= (velocityTarget-state.velocity)*.18;
     if(performance.now()-lastTime>110) velocityTarget=0;
     if(Math.abs(state.velocity-velocityTarget)<.002) state.velocity=velocityTarget;
-    state.chapter=core.chapterAt(state.progress,chapters); state.ranges.hero=reduce ? .82 : range(".hero-scene",.88,1.65); state.ranges.tour=reduce?1:range("#tour",.82,.72);
+    state.chapter=core.chapterAt(state.progress,chapters); state.ranges.hero=reduce ? .82 : sectionProgress(".hero"); state.ranges.tour=reduce?1:range("#tour",.82,.72);
     state.sequence+=1; classify(); root.DoebelExperienceState=state;
     html.style.setProperty("--experience",state.progress.toFixed(4)); html.style.setProperty("--velocity",state.velocity.toFixed(3)); html.style.setProperty("--flow",(1+state.velocity*1.4).toFixed(2));
     html.dataset.experienceChapter=state.chapter.toLowerCase(); html.dataset.deviceClass=state.deviceClass.toLowerCase(); html.dataset.qualityTier=state.qualityTier.toLowerCase();
@@ -42,6 +47,7 @@
   "use strict";
   function clamp(value){return Math.max(0,Math.min(1,Number(value)||0));}
   function chapterAt(progress,chapters){var stops=[.08,.18,.30,.45,.60,.72,.84,.94,1],p=clamp(progress);for(var i=0;i<stops.length;i++)if(p<=stops[i])return chapters[i];return chapters[chapters.length-1];}
+  function sectionProgress(top,height,viewport){return clamp(-Number(top)/Math.max(1,Number(height)-Number(viewport)));}
   function snapshot(state){return JSON.parse(JSON.stringify(state));}
-  return {clamp:clamp,chapterAt:chapterAt,snapshot:snapshot};
+  return {clamp:clamp,chapterAt:chapterAt,sectionProgress:sectionProgress,snapshot:snapshot};
 });
