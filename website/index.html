@@ -21,7 +21,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,700;0,800;1,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/style.css?v=2026.09j&amp;b=3">
+  <link rel="stylesheet" href="css/style.css?v=2026.09j&amp;b=4">
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -104,7 +104,16 @@
           </ul>
         </div>
         <figure class="hero-scene" aria-hidden="true">
-          <svg viewBox="0 0 380 340" width="100%">
+          <div class="hero-render-stack" data-hero-render="molecule">
+            <div class="hero-render-card hero-render-card--building" data-depth="-1.2"><img src="img/altbau.jpg" alt="" width="1600" height="900" fetchpriority="high" decoding="async"></div>
+            <div class="hero-render-card hero-render-card--floor" data-depth="-.45"><img src="img/fussboden.jpg" alt="" width="1600" height="900" decoding="async"></div>
+            <div class="hero-render-card hero-render-card--cold" data-depth=".3"><img src="img/kaelte.jpg" alt="" width="1600" height="900" decoding="async"></div>
+            <div class="hero-render-card hero-render-card--heat" data-depth=".85"><img src="img/kessel.jpg" alt="" width="1600" height="900" decoding="async"></div>
+            <div class="hero-render-tunnel" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="hero-render-particles" aria-hidden="true"></div>
+            <div class="hero-render-lens"><span class="hero-lens-label">MOLEKÜL‑VIEW</span><b>VL&nbsp;→&nbsp;RL</b><small>Kältemittel · Wärme · Luft</small></div>
+          </div>
+          <svg class="hero-diagram" viewBox="0 0 380 340" width="100%">
             <defs><linearGradient id="heatgrad" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#3B82F6"/><stop offset="100%" stop-color="#D62828"/></linearGradient></defs>
             <circle cx="200" cy="170" r="152" fill="none" stroke="#3B82F6" stroke-width="1.5" opacity=".13"/>
             <circle cx="200" cy="170" r="116" fill="none" stroke="#3B82F6" stroke-width="1.5" opacity=".13"/>
@@ -118,17 +127,17 @@
             <rect x="78" y="68" width="36" height="9" rx="3" fill="#0A1B33"/>
             <rect x="70" y="184" width="52" height="38" rx="6" fill="#0A1B33"/>
             <g id="flame"><path d="M96 218c-9-3-13-9-9-17 1 3 3 4 5 4-2-7 2-12 7-15-1 6 2 8 5 11 5 5 2 14-8 17-3 1-8 1-10 0z" fill="#D62828"/><path d="M96 216c-5-2-7-5-5-9 1 2 2 2 3 2-1-4 1-6 4-8-1 3 1 4 2 6 2 3 1 7-4 9z" fill="#FF4F2E"/></g>
-            <path class="heatline" d="M140 140h48a16 16 0 0 0 16-16v-12a14 14 0 0 1 14-14h14a12 12 0 0 1 12 12v40" fill="none" stroke="url(#heatgrad)" stroke-width="8" stroke-linecap="round"/>
-            <path class="routebubs" d="M140 140h48a16 16 0 0 0 16-16v-12a14 14 0 0 1 14-14h14a12 12 0 0 1 12 12v40" fill="none" stroke="#FFD9C2" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.5 24"/>
+            <path class="heatline hero-vl" d="M140 140h48a16 16 0 0 0 16-16v-12a14 14 0 0 1 14-14h14a12 12 0 0 1 12 12v40" fill="none" stroke="url(#heatgrad)" stroke-width="8" stroke-linecap="round"/>
+            <path class="routebubs hero-vl-bubbles" d="M140 140h48a16 16 0 0 0 16-16v-12a14 14 0 0 1 14-14h14a12 12 0 0 1 12 12v40" fill="none" stroke="#FFD9C2" stroke-width="4" stroke-linecap="round" stroke-dasharray="0.5 24"/>
             <rect x="222" y="150" width="52" height="62" rx="6" fill="#F3F5FA" stroke="#0A1B33" stroke-width="2.5"/>
             <path d="M236 158v46M248 158v46M260 158v46M232 212v32M264 212v32" stroke="#0A1B33" stroke-width="2.5" stroke-linecap="round"/>
             <path class="steam" d="M233 142q-5-7 0-13t0-13M248 140q5-7 0-13t0-13M263 142q-5-7 0-13t0-13" fill="none" stroke="#FF4F2E" stroke-width="2.5" opacity=".8" stroke-linecap="round"/>
-            <path d="M274 204h20a12 12 0 0 1 12-12" fill="none" stroke="#3B82F6" stroke-width="8" stroke-linecap="round"/>
+            <path class="hero-rl" d="M274 204h20a12 12 0 0 1 12-12" fill="none" stroke="#3B82F6" stroke-width="8" stroke-linecap="round"/>
             <rect x="312" y="118" width="52" height="126" rx="8" fill="#F3F5FA" stroke="#3B82F6" stroke-width="2.5"/>
             <g class="vapor" stroke="none" fill="#BBD7FF"><circle class="vap" cx="326" cy="112" r="4.5"/><circle class="vap" cx="340" cy="112" r="3.5"/><circle class="vap" cx="354" cy="112" r="5"/></g>
             <path d="M318 118l4 13 4-13 4 13 4-13 4 13 4-13M338 166v28M326 173l24 14M350 173l-24 14" fill="none" stroke="#3B82F6" stroke-width="2.5" stroke-linecap="round" opacity=".85"/>
-            <text x="166" y="128" font-family="IBM Plex Mono, monospace" font-size="12" fill="#D62828">VL</text>
-            <text x="290" y="222" font-family="IBM Plex Mono, monospace" font-size="12" fill="#3B82F6">RL</text>
+            <text class="hero-vl-label" x="166" y="128" font-family="IBM Plex Mono, monospace" font-size="12" fill="#D62828">VL</text>
+            <text class="hero-rl-label" x="290" y="222" font-family="IBM Plex Mono, monospace" font-size="12" fill="#3B82F6">RL</text>
           </svg>
         </figure>
         <a class="scroll-cue" href="#wuermewende">Weiterlesen <i aria-hidden="true"></i></a>
@@ -167,6 +176,15 @@
           <span class="eyebrow">Mikro-Monteur-Tour · die Ant-Perspektive</span>
           <h2 id="tour-t">Von Wärme über Luft bis Kälte</h2>
           <p>Die animierte Leistungsreise führt im Miniaturmaßstab durch sieben freigegebene Bereiche — vom Heizungsbau bis zum Kühlanlagen-Notdienst.</p>
+          <div class="motion-lab" role="group" aria-label="Drei Scroll-Erlebnisse">
+            <span class="motion-lab-label">Scroll-Erlebnis wählen</span>
+            <div class="motion-options">
+              <button class="motion-option is-active" type="button" data-motion="flow" aria-pressed="true">01 · Kältemittelstrom</button>
+              <button class="motion-option" type="button" data-motion="phase" aria-pressed="false">02 · Phasenwechsel</button>
+              <button class="motion-option" type="button" data-motion="cine" aria-pressed="false">03 · Cine-Kern</button>
+            </div>
+            <p class="motion-description" data-motion-description>Partikel folgen dem Kältekreis rückwärts bis zur warmen Kesselzone.</p>
+          </div>
         </div>
         <figure class="tour-scene" aria-hidden="true">
           <svg viewBox="0 0 1200 560" width="100%">
@@ -480,5 +498,8 @@
 
   <script src="js/main.js?v=2026.09j&amp;b=3" defer></script>
   <script src="js/fluid.js?v=2026.09j&amp;b=3" defer></script>
+  <script src="js/motion-variant.js?v=2026.09j&amp;b=4" defer></script>
+  <script src="js/hero-render.js?v=2026.09j&amp;b=1" defer></script>
 </body>
 </html>
+

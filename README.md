@@ -19,7 +19,7 @@ ausgewiesen.
 - QA: `152 PASS / 0 FAIL`
 - JavaScript: `main.js` 8.000 Byte, `fluid.js` 7.459 Byte roh
 - Transfer: CSS und JavaScript zusammen 16.747 Byte gzip (Budget: 30 KB)
-- Produktionsbuild: 26 Dateien unter `website/dist/`
+- Produktionsbuild: 28 Dateien unter `website/dist/`
 - Veröffentlichung ausschließlich als Update der bestehenden Page; keine neue Page anlegen
 
 Ein Produktions-Publish ist nur aus einer Umgebung mit der Infrastruktur der bestehenden Page zulässig. Eine lokale Vorschau ist kein Deployment.
@@ -28,6 +28,9 @@ Ein Produktions-Publish ist nur aus einer Umgebung mit der Infrastruktur der bes
 
 - Pointer-haptisches WebGL-Fluid mit Rot-Blau-Wärmewaage, DPR-Limit, Sichtbarkeits- und Leerlauf-Stopp
 - Gemeinsamer Scroll-Druckbus für Fluid, Wärmestrom und Tour-Tempo
+- Photorealistischer Hero-Renderstack: Altbau, Fußbodenheizung, Kälteanlage und Brennwertkessel als räumliche Tiefenebenen
+- Antman-artige Molekül-View: Scroll zoomt in den VL/RL-Strom, durch den Energie-Kern und wieder heraus
+- Drei wählbare Scroll-Varianten: Kältemittelstrom, Phasenwechsel und Cine-Kern
 - Siebenstufige Mikro-Monteur-Tour entlang einer unveränderten SVG-Route
 - Tangentenbasierte Figurenausrichtung, dezente Kamerafahrt und aktuelle Kontrollstation
 - Gemeinsame Filmgradierung, gerichtetes Licht, Korn, Vignette und feste Kinoapertur für alle Renderings
@@ -48,6 +51,8 @@ website/                 auslieferbares statisches Artefakt
   css/style.css          Tokens, Layout, Film- und Motion-System
   js/main.js             Navigation, Reveals, Druckbus und Tour
   js/fluid.js            WebGL-Fluid
+  js/motion-variant.js   drei scrollbare Partikel-/Farbvarianten
+  js/hero-render.js      Hero-Tiefenstack, Molekül-Zoom und VL/RL-Partikelstrom
   img/                   sechs 1600×900-Renderings
   _headers               Sicherheits- und Cache-Header
   _redirects             Cloudflare-Pages-kompatible Hinweise
@@ -117,3 +122,4 @@ Keine Preise, Reaktionszeiten, Referenzen, Garantien, Förderversprechen, Wartez
 4. Live-URL, Cache-Version und alle zehn HTML-Routen erneut prüfen.
 
 Cloudflare-Domainweiterleitungen werden als direkte Ein-Hop-301-Regeln auf Zonenebene konfiguriert; Domainregeln gehören nicht in die Pages-Datei `_redirects`. Die Datei `website/ANLEITUNG-DEPLOY.md` enthält die ergänzenden Schritte.
+
